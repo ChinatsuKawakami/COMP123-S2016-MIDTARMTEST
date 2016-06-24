@@ -8,7 +8,7 @@ using System.Threading.Tasks;
  * StudentID:300821245
  * Date:24th June 2016
  * Description: This driver class to show Loto Numbers to console
- * Version - 0.0.3 - Added interface and added methods in two subclasses
+ * Version - 0.0.4 - updared abstract class
  */
 namespace COMP123_MidTermExam
 {

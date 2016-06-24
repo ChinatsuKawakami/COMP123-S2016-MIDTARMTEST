@@ -35,7 +35,7 @@ namespace COMP123_MidTermExam
         public void GenerateLottoNumbers()
         {
             PickElements();
-            Console.WriteLine(base.ToString());
+            Console.WriteLine(this.ToString());
         }
     }
 }
