@@ -27,13 +27,15 @@ namespace COMP123_MidTermExam
         private Random _random;
         private int _setSize;
         // PUBLIC PROPERTIES ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+      
+        // CREATE public properties here -----------------------------------------
         public List<int> ElementList
         {
             get
             {
-               return this._elementList;
+                return this._elementList;
             }
-         
+
         }
 
         public int ElementNumber
@@ -54,7 +56,7 @@ namespace COMP123_MidTermExam
             {
                 return this._numberList;
             }
-        
+
         }
 
         public Random random
@@ -63,7 +65,7 @@ namespace COMP123_MidTermExam
             {
                 return this._random;
             }
-     
+
         }
 
         public int SetSize
@@ -77,8 +79,6 @@ namespace COMP123_MidTermExam
                 this._setSize = value;
             }
         }
-        // CREATE public properties here -----------------------------------------
-
         // CONSTRUCTORS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
         /**
@@ -104,7 +104,7 @@ namespace COMP123_MidTermExam
             this._initialize();
 
             // call the _build method
-            this._build();
+            this._initialize();
         }
 
       
@@ -112,7 +112,21 @@ namespace COMP123_MidTermExam
         // PRIVATE METHODS ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
         // CREATE the private _initialize method here -----------------------------
+        private void _initialize()
+        {
+            this._numberList.Add(0);
+            this._elementList.Add(0);
+            this._random.Next(0);
 
+        }
+
+        private void _build()
+        {
+            for (int i = 1; i < SetSize + 1; i++)
+            {
+                this.NumberList.Add(i);
+            }
+        }
         // CREATE the private _build method here -----------------------------------
 
         // OVERRIDEN METHODS ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -144,6 +158,33 @@ namespace COMP123_MidTermExam
 
         // PUBLIC METHODS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+     
+       
         // CREATE the public PickElements method here ----------------------------
+        public void PickElements()
+        {
+            if (this.ElementList.Count > 0)
+            {
+                this.ElementList.Clear();
+                this.NumberList.Clear();
+                this._build();
+
+            }
+            Random ram = new Random();
+            int max = this.NumberList.Count;
+
+            NumberList.Sort();
+            int x = 0;
+            do
+            {
+                int randomNumber = ram.Next(this.NumberList.ElementAt(0), max);
+                this.ElementList.Add(randomNumber);
+                NumberList.RemoveAt(randomNumber);
+                x++;
+                randomNumber = ram.Next(this.NumberList.ElementAt(0), max - x);
+
+            } while (x < max);
+        }
+
     }
 }
