@@ -114,9 +114,9 @@ namespace COMP123_MidTermExam
         // CREATE the private _initialize method here -----------------------------
         private void _initialize()
         {
-            this._numberList.Add(0);
-            this._elementList.Add(0);
-            this._random.Next(0);
+          _numberList = new List<int>{};
+          _elementList = new List<int>{};
+          _random = new Random();
 
         }
 
@@ -184,6 +184,7 @@ namespace COMP123_MidTermExam
                 randomNumber = ram.Next(this.NumberList.ElementAt(0), max - x);
 
             } while (x < max);
+            ElementList.Sort();
         }
 
     }
